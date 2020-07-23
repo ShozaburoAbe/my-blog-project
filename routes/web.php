@@ -18,13 +18,6 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::get('/post', 'HomeController@post')->name('post');
-
-
-
-
-
-
 
 
 Route::get('/admin', 'AdminController@index')->name('admin');

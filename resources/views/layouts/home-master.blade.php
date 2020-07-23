@@ -41,24 +41,21 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('about')}}">About</a>
           </li>
+          @if (!Auth::user())
           <li class="nav-item">
-            <a class="nav-link" href="{{route('post')}}">Sample Post</a>
+            <a class="nav-link" href="/login">Log in</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('contact')}}">Contact</a>
-          </li>
-          {{-- @if (Auth::user)
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('login')}}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('register')}}">Register</a>
+            <a class="nav-link" href="/register">Sign in</a>
           </li>
           @else
               <li class="nav-item">
                 <a class="nav-link" href="{{route('admin')}}">Admin</a>
               </li>
-          @endif --}}
+          @endif
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('contact')}}">Contact</a>
+          </li>
         </ul>
       </div>
     </div>
