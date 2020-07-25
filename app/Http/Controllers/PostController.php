@@ -24,7 +24,6 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -44,9 +43,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
-    {
-        //
+    public function show(Post $post, $id)
+    { //ここでどのPostを送るのかを送られてきたidで判別する。
+        $post = Post::findOrFail($id);
+        return view('home.post', ['post' => $post]);
     }
 
     /**
