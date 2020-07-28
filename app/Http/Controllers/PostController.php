@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -24,6 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        return view('admin.create-post');
     }
 
     /**
@@ -34,7 +36,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::findOrFail(1);
+        $user->posts()->create([
+            'user_id' => $user->id,
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+        return redirect('/admin');
     }
 
     /**
@@ -45,6 +53,7 @@ class PostController extends Controller
      */
     public function show(Post $post, $id)
     { //ここでどのPostを送るのかを送られてきたidで判別する。
+        // $post = User::findOrFail(1)->posts->where('id', $id);
         $post = Post::findOrFail($id);
         return view('home.post', ['post' => $post]);
     }
@@ -55,9 +64,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post, $id)
     {
-        //
+        $post = POST::findOrFail($id);
+        return view('admin.edit-post', ['post' => $post]);
     }
 
     /**
@@ -67,9 +77,15 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->update([
+            'user_id' => $post->user->id,
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+        return redirect('/admin');
     }
 
     /**
@@ -78,8 +94,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post, $id)
     {
-        //
+        $post = POST::findOrFail($id);
+        $post->delete();
+        return redirect('/admin');
     }
 }

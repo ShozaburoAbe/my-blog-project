@@ -26,11 +26,17 @@
                 {{$post->title}}
                 </h2>
                 <h3 class="post-subtitle">
-                {{$post->content}}
+                    <?php
+                        if (strlen($post->content) > 40) {
+                            $breif = substr($post->content, 0, 40) . '...';
+                            echo $breif;
+                        }
+                    ?>
+                {{-- {{$post->content}} --}}
                 </h3>
             </a>
             <p class="post-meta">Posted by
-                <a href="#">Start Bootstrap</a>
+                <a href="{{route('show.posts', [$post->user->id])}}">{{$post->user->name}}</a>
                 on {{$post->updated_at->format('F j, Y')}}</p>
             </div>
             <hr>

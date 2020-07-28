@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">All Posts</h1>
+    <h1 class="h3 mb-0 text-gray-800">All Users</h1>
     </div>
 @endsection
 
@@ -19,31 +19,22 @@
                     <tr>
                         <th>Id</th>
                       <th>Name</th>
-                      <th>Title</th>
-                      <th>Created At</th>
-                      <th>Update</th>
-                      <th>Delete</th>
+                      <th>Posts</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                         <th>Id</th>
                       <th>Name</th>
-                      <th>Title</th>
-                      <th>Created At</th>
-                      <th>Update</th>
-                      <th>Delete</th>
+                      <th>Posts</th>
                     </tr>
                   </tfoot>
                   <tbody>
                     @foreach ($posts as $post)
                         <tr>
                           <td>{{$post->id}}</td>
-                          <td>{{$post->user->name}}</td>
-                          <td><a href="{{route('post.show', ['id' => $post->id])}}">{{$post->title}}</a></td>
-                          <td>{{$post->created_at}}</td>
-                          <td><a href="{{route('post.edit', ['id' => $post->id])}}">Update</a></td>
-                          <td><a href="{{route('post.destroy', ['id' => $post->id])}}">Delete</a></td>
+                          <td>{{$post->title}}</td>
+                          <td>{{$post->content}}</td>
                         </tr>
                     @endforeach
                   </tbody>

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +16,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/contact', 'HomeController@contact')->name('contact');
-
-
-Route::get('/post/{id}', 'PostController@show')->name('post');
-
-
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::view('/about', 'home.about')->name('about');
+Route::view('/contact', 'home.contact')->name('contact');

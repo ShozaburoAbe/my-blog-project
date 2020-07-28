@@ -9,7 +9,7 @@
           <div class="post-heading">
             <h2>{{$post->title}}</h2>
             <span class="meta">Posted by
-              <a href="#">Start Bootstrap</a>
+              <a href="{{route('show.posts', [$post->user->id])}}">{{$post->user->name}}</a>
               on August 24, 2019</span>
           </div>
         </div>
