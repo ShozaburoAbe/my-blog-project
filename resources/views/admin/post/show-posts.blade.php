@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">All Users</h1>
+    <h1 class="h3 mb-0 text-gray-800"> Post</h1>
     </div>
 @endsection
 
@@ -10,7 +10,7 @@
     <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Users Table</h6>
+              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -20,24 +20,27 @@
                         <th>Id</th>
                       <th>Name</th>
                       <th>Posts</th>
+                      <th>Update</th>
                       <th>Delete</th>
                     </tr>
-                  </thead>
-                  <tfoot>
+                </thead>
+                <tfoot>
                     <tr>
                         <th>Id</th>
-                      <th>Name</th>
-                      <th>Posts</th>
-                      <th>Delete</th>
+                        <th>Name</th>
+                        <th>Posts</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($posts as $post)
                         <tr>
-                          <td>{{$user->id}}</td>
-                          <td>{{$user->name}}</td>
-                          <td><a href="{{route('show.posts', ['id' => $user->id])}}">Show Posts</a></td>
-                          <td><a class="btn btn-group-sm btn-danger" href="{{route('delete.user', ['id' => $user->id])}}">Delete</a></td>
+                          <td>{{$post->id}}</td>
+                          <td>{{$post->title}}</td>
+                          <td>{{$post->content}}</td>
+                          <td><a class="btn btn-success btn-sm" href="{{route('post.edit', ['id' => $post->id])}}">Update</a></td>
+                          <td><a class="btn btn-danger btn-sm" href="{{route('post.destroy', ['id' => $post->id])}}">Delete</a></td>
                         </tr>
                     @endforeach
                   </tbody>

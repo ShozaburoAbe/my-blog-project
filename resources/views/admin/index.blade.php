@@ -37,7 +37,7 @@
                     @foreach ($posts as $post)
                         <tr>
                           <td><a href="{{route('post.show', ['id' => $post->id])}}">{{$post->title}}</a></td>
-                          <td><a href="{{route('show.posts', ['id' => $post->user->id])}}">{{$post->user->name}}</a></td>
+                          <td><a href="{{route('show.user', ['id' => $post->user->id])}}">{{$post->user->name}}</a></td>
                           <td>{{$post->created_at}}</td>
                           <td><a class="btn btn-success btn-sm" href="{{route('post.edit', ['id' => $post->id])}}">Update</a></td>
                           <td><a class="btn btn-danger btn-sm" href="{{route('post.destroy', ['id' => $post->id])}}">Delete</a></td>

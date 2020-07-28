@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800"> Post</h1>
+    <h1 class="h3 mb-0 text-gray-800">All Users</h1>
     </div>
 @endsection
 
@@ -10,7 +10,7 @@
     <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Users Table</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -20,6 +20,7 @@
                         <th>Id</th>
                       <th>Name</th>
                       <th>Posts</th>
+                      <th>Delete</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -27,14 +28,16 @@
                         <th>Id</th>
                       <th>Name</th>
                       <th>Posts</th>
+                      <th>Delete</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    @foreach ($posts as $post)
+                    @foreach ($users as $user)
                         <tr>
-                          <td>{{$post->id}}</td>
-                          <td>{{$post->title}}</td>
-                          <td>{{$post->content}}</td>
+                          <td>{{$user->id}}</td>
+                          <td><a href="{{route('show.user', ['id' => $user->id])}}">{{$user->name}}</a></td>
+                          <td><a href="{{route('show.posts', ['id' => $user->id])}}">Show Posts</a></td>
+                          <td><a class="btn btn-group-sm btn-danger" href="{{route('delete.user', ['id' => $user->id])}}">Delete</a></td>
                         </tr>
                     @endforeach
                   </tbody>

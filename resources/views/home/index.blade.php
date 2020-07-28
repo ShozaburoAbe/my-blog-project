@@ -36,7 +36,7 @@
                 </h3>
             </a>
             <p class="post-meta">Posted by
-                <a href="{{route('show.posts', [$post->user->id])}}">{{$post->user->name}}</a>
+                <a href="{{route('show.user', [$post->user->id])}}">{{$post->user->name}}</a>
                 on {{$post->updated_at->format('F j, Y')}}</p>
             </div>
             <hr>
