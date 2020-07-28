@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -36,7 +37,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::findOrFail(1);
+        $user = User::findOrFail(auth()->user()->id);
         $user->posts()->create([
             'user_id' => $user->id,
             'title' => $request->title,

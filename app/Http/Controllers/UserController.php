@@ -18,4 +18,11 @@ class UserController extends Controller
         $usersPosts = User::findOrFail($id)->posts;
         return view('admin.show-posts', ['posts' => $usersPosts]);
     }
+
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back();
+    }
 }

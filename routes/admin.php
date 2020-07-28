@@ -11,4 +11,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/users', 'UserController@index')->name('show.users');
     Route::get('/{id}/posts', 'UserController@show')->name('show.posts');
+    Route::get('/{id}/delete', 'UserController@delete')->name('delete.user');
 });

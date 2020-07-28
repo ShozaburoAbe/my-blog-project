@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $posts = User::findOrFail(1)->posts;
+        $posts = Auth::user()->posts;
         return view('admin.index', ['posts' => $posts]);
     }
 
