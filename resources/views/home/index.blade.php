@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
-                        <h2>Recent Posts だよ</h2>
+                        <h2>Recent Posts</h2>
                     </div>
                 </div>
             </div>
