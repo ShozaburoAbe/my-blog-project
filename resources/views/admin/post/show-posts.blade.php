@@ -39,8 +39,10 @@
                           <td>{{$post->id}}</td>
                           <td>{{$post->title}}</td>
                           <td>{{$post->content}}</td>
+                          @if ($post->user_id == auth()->user()->id)
                           <td><a class="btn btn-success btn-sm" href="{{route('post.edit', ['id' => $post->id])}}">Update</a></td>
                           <td><a class="btn btn-danger btn-sm" href="{{route('post.destroy', ['id' => $post->id])}}">Delete</a></td>
+                          @endif
                         </tr>
                     @endforeach
                   </tbody>

@@ -38,7 +38,9 @@
                   <div class="invalid-feedback">{{$message}}</div>
               @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            @if ($user->id == auth()->user()->id)
+            <button type="submit" class="btn btn-primary">Modify</button>
+            @endif
           </form>
         </div>
 

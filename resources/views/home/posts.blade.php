@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
-                        <h2>Recent Posts だよ</h2>
+                        <h2>All Posts</h2>
                     </div>
                 </div>
             </div>
@@ -18,6 +18,7 @@
     <div class="container">
         <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+
             @foreach ($posts as $post)
             <div class="post-preview">
             <a href="post/{{$post->id}}">
@@ -40,11 +41,6 @@
             </div>
             <hr>
             @endforeach
-
-            <!-- Pager -->
-            <div class="clearfix">
-            <a class="btn btn-primary float-right" href="{{route('more.posts')}}">More Posts &rarr;</a>
-            </div>
         </div>
         </div>
     </div>
