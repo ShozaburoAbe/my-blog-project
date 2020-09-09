@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h2>About Me</h2>
+            <h2>About Meです</h2>
             <span class="subheading">This is what I do.</span>
           </div>
         </div>
